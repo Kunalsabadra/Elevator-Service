@@ -5,7 +5,14 @@
     "rules": {
           "semi": ["error" ,"always"],
           "simple-import-sort/imports" : "error",
-          "simple-import-sort/exports" : "error"
+          "simple-import-sort/exports" : "error",
+          "no-unused-vars" : ["off" , {
+             "vars": "off",
+             "args" : "off",
+             "caughtErrors": "off",
+             "ignoreRestSiblings" : false,
+             "reportUsedIgnorePattern" : false
+          }]
     },
     "plugins": ["simple-import-sort"]
 }
