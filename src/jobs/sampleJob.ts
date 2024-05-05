@@ -11,8 +11,12 @@ export default class SampleJob implements IJob {
         this.payload = payload;
     }
 
-    handle = () => {
+    handle = (job?: Job) => {
         console.log("Handler of the job callled");
+        console.log(this.payload);
+        if (job) {
+            console.log(job.name, job.id, job.data);
+        }
     };
 
     failed = (job?: Job) => {
@@ -21,5 +25,4 @@ export default class SampleJob implements IJob {
             console.log(job.id);
         }
     };
-
 }

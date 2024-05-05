@@ -1,7 +1,9 @@
 import express, { Express } from 'express';
 
 import serverConfig from './config/serverConfig';
+import sampleQueueProducer from './producers/sampleQueueProducer';
 import apiRouter from './routes';
+import SampleWorker from './workers/sampleWorker';
 
 const app: Express = express();
 
@@ -14,3 +16,14 @@ app.use('/api', apiRouter);
 app.listen(serverConfig.PORT, () => {
     console.log(`Server Started at PORT ${serverConfig.PORT}`);
 });
+
+
+sampleQueueProducer('SampleJob', {
+    name: "Kunal",
+    company: "Microsoft",
+    position: "SD1",
+    location: "Banglore"
+});
+SampleWorker('SampleQueue');
+
+
